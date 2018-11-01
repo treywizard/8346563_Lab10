@@ -34,7 +34,10 @@ public int factorial(int value)
        */
 
 	//TODO
-
+		if(value == 1)
+		{
+		    return value;
+		}
 
       /*
        * Here is the recursive statement. The function calls itself when the base case is not met.
@@ -45,7 +48,10 @@ public int factorial(int value)
        */
 
 	//TODO
-
+	else
+	{
+	    return value * factorial(value);
+	}
 }
 
     /**
