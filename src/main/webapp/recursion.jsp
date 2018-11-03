@@ -1,11 +1,12 @@
-<%@ page import="java.util.ArrayList,java.io.*,java.util.*,java.sql.*,java.time.LocalDateTime,java.time.format.DateTimeFormatter" %>
+<%@ page
+	import="java.util.ArrayList,java.io.*,java.util.*,java.sql.*,java.time.LocalDateTime,java.time.format.DateTimeFormatter"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>CS 2334 - Lab9: Recursion</title>
 </head>
 <body style="BACKGROUND: url(images/bcgreeen1.GIF) repeat-x" height=938>
-<%!
+	<%!
 /**
  * Lab 9: Recursion Suite
  * 
@@ -183,6 +184,21 @@ public int nnaryTreeSize(int branchingFactor, int height)
 public int treeSum(Tree tree)
 {
 	//TODO
+	ArrayList<Tree> trees = tree.getChildren();
+	int values = 0;
+	if(trees.size() == 0)
+	{
+	    return tree.getValue();
+	}
+	else
+	{
+	    for(i = 0; i < trees.size(); i++)
+	    {
+	        value += treeSum(trees.get(i));
+	        value += tree.getValue();
+	    }
+	    return value;
+	}
 }
     
     /**
@@ -265,12 +281,10 @@ public double circledSquared(boolean square, double length, int depth)
 	}
 }
 %>
-<center>
-<font size=5>
-	Recursion Testing System
-</font>
-</center>
-<%
+	<center>
+		<font size=5> Recursion Testing System </font>
+	</center>
+	<%
 //Test recursion:
 out.println("<br />Value of 4! is: " + factorial(4));
 out.println("<br />Value of 10! is: " + factorial(10));
